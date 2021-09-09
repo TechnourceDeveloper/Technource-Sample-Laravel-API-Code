@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/var/www/html/MyProject/routes/api.php</file>
+            <file>file:/var/www/html/MyProject/app/Http/Controllers/Api/v1/LoginController.php</file>
+            <file>file:/var/www/html/MyProject/app/Helpers/Helper.php</file>
+            <file>file:/var/www/html/MyProject/app/Models/UserDevice.php</file>
+            <file>file:/var/www/html/MyProject/app/Http/Kernel.php</file>
+            <file>file:/var/www/html/MyProject/app/Http/Requests/SignupRequest.php</file>
+            <file>file:/var/www/html/MyProject/resources/lang/en/api_message.php</file>
+            <file>file:/var/www/html/MyProject/app/Models/User.php</file>
+            <file>file:/var/www/html/MyProject/app/Repositories/LoginRepository.php</file>
+            <file>file:/var/www/html/MyProject/composer.json</file>
+            <file>file:/var/www/html/MyProject/app/Providers/RouteServiceProvider.php</file>
+            <file>file:/var/www/html/MyProject/app/Helpers/LoginHelper.php</file>
+            <file>file:/var/www/html/MyProject/app/Http/Controllers/Controller.php</file>
+        </group>
+    </open-files>
+</project-private>
