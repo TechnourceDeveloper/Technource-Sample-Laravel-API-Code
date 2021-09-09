@@ -20,7 +20,11 @@ Installation
 
    
    
-5) Environment variables
+5) Environment variables in .env
+
+  For update .env file using cmd use below command 
+  
+  sudo nano .env
 
   Set below varibale for database connection with your database
   
