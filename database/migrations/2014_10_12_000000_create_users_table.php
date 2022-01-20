@@ -17,10 +17,10 @@ class CreateUsersTable extends Migration
             $table->engine = "InnoDB";
             $table->id('user_id');
             $table->string('name');
-            $table->string('username')->unique();
-            $table->string('email')->unique();
+            $table->string('username');
+            $table->string('email');
             $table->string('mobile_number', 20)->nullable();
-            $table->string('about_me', 255)->nullable();
+            $table->text('about_me')->nullable();
             $table->string('password');
             $table->date('date_of_birth')->nullable();
             $table->string('profile_image', 100)->nullable();
@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->tinyInteger('account_type')->nullable()->comment('1=>email/username, 2=>gmail,3=>facebook');
             $table->enum('user_type',['0','1','2'])->nullable()->comment("0=>admin,1=>customer,2=>specialist");
             $table->enum('is_active',['0','1'])->comment("0=>inactive,1=>active")->default('1');
+            $table->enum('is_email_verified',['0','1'])->comment("0=>no,1=>yes")->default('0');
             $table->enum('deactivated_by',['0','1'])->comment("0=>own,1=>admin")->default('0');
             $table->string('otp', 6)->nullable();
             $table->datetime('otp_expire_time')->nullable();

@@ -20,15 +20,15 @@ use App\Http\Controllers\Api\v1\{
 
 
 Route::group(['prefix' => 'v1', 'namespace' => 'Api/v1'], function () {
-    Route::post('/register', [LoginController::class, 'register']);
-    Route::post('/verify-otp', [LoginController::class, 'verifyOtp']);
-    Route::post('/login', [LoginController::class, 'login']);
-    Route::post('/forget-password', [LoginController::class, 'forgetPassword']);
-    Route::post('/resend-otp', [LoginController::class, 'resendOtp']);
-    Route::post('/reset-password', [LoginController::class, 'resetPassword']);
+    Route::post('register', [LoginController::class, 'register']);
+    Route::post('verify-otp', [LoginController::class, 'verifyOtp']);
+    Route::post('login', [LoginController::class, 'login']);
+    Route::post('forget-password', [LoginController::class, 'forgetPassword']);
+    Route::post('resend-otp', [LoginController::class, 'resendOtp']);
+    Route::post('reset-password', [LoginController::class, 'resetPassword']);
     Route::group(['middleware' => 'is_user_active'], function () {
         Route::group(['middleware' => 'auth:sanctum'], function () {
-            Route::post('/logout', [LoginController::class, 'logout']);
+            Route::post('logout', [LoginController::class, 'logout']);
         });
     });
 });

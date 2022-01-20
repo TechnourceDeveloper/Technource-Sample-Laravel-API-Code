@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Repositories\LoginRepository;
-use App\Http\Requests\{
+use App\Repositories\Api\LoginRepository;
+use App\Http\Requests\Api\{
     SignupRequest,
     LoginRequest,
     VerifyOtpRequest,
@@ -13,11 +13,13 @@ use App\Http\Requests\{
     ResetPasswordRequest
 };
 
-class LoginController extends Controller {
+class LoginController extends Controller
+{
 
     protected $loginRepository;
 
-    public function __construct(LoginRepository $loginRepo) {
+    public function __construct(LoginRepository $loginRepo)
+    {
         $this->loginRepository = $loginRepo;
     }
 
@@ -26,7 +28,8 @@ class LoginController extends Controller {
      * @param  mixed $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function register(SignupRequest $request) {
+    public function register(SignupRequest $request)
+    {
         $response = $this->loginRepository->signUp($request);
         return response()->json($response, $response['response']);
     }
@@ -36,7 +39,8 @@ class LoginController extends Controller {
      * @param  mixed $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function login(LoginRequest $request) {
+    public function login(LoginRequest $request)
+    {
         $response = $this->loginRepository->login($request);
         return response()->json($response, $response['response']);
     }
@@ -46,7 +50,8 @@ class LoginController extends Controller {
      * @param  mixed $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function forgetPassword(ForgetPasswordRequest $request) {
+    public function forgetPassword(ForgetPasswordRequest $request)
+    {
         $response = $this->loginRepository->forgetPassword($request);
         return response()->json($response, $response['response']);
     }
@@ -56,7 +61,8 @@ class LoginController extends Controller {
      * @param  mixed $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function logout(Request $request) {
+    public function logout(Request $request)
+    {
         $user = request()->user();
         if (!empty(request()->user())) {
             $user->tokens()->delete();
@@ -71,7 +77,8 @@ class LoginController extends Controller {
      * @param  mixed $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function verifyOtp(VerifyOtpRequest $request) {
+    public function verifyOtp(VerifyOtpRequest $request)
+    {
         $response = $this->loginRepository->verifyOtp($request);
         return response()->json($response, $response['response']);
     }
@@ -81,7 +88,8 @@ class LoginController extends Controller {
      * @param  mixed $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function resendOtp(ForgetPasswordRequest $request) {
+    public function resendOtp(ForgetPasswordRequest $request)
+    {
         $response = $this->loginRepository->resendOtp($request);
         return response()->json($response, $response['response']);
     }
@@ -91,9 +99,9 @@ class LoginController extends Controller {
      * @param  mixed $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function resetPassword(ResetPasswordRequest $request) {
+    public function resetPassword(ResetPasswordRequest $request)
+    {
         $response = $this->loginRepository->resetPassword($request);
         return response()->json($response, $response['response']);
     }
-
 }

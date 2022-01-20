@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Api;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Contracts\Validation\Validator;
 
-class ForgetPasswordRequest extends FormRequest
+class ResetPasswordRequest extends FormRequest
 {
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -26,16 +27,19 @@ class ForgetPasswordRequest extends FormRequest
     public function rules()
     {
         return [
-            'email'=>'required|email'
+            'email' => 'required|email',
+            'password' => 'required|min:6',
+            'confirm_password' => 'required|same:password'
         ];
-        
     }
-    public function failedValidation(Validator $validator) {
+
+    public function failedValidation(Validator $validator)
+    {
         $errors = $validator->errors()->first(); // Here is your array of errors
 
         $response = response()->json([
             'message' => $errors, 'response' => 201
-                ], 201);
+        ], 201);
         throw new HttpResponseException($response);
     }
 }

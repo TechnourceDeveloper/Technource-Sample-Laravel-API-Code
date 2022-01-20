@@ -13,12 +13,13 @@ class Authenticate extends Middleware
      * @param  \Illuminate\Http\Request  $request
      * @return string|null
      */
-    protected function redirectTo($request) {
+    protected function redirectTo($request)
+    {
 
         if ($request->is('api/*')) {
-            throw new HttpResponseException(response()->json(['message' => "Unauthenticated",'response'=>401], 401));
+            throw new HttpResponseException(response()->json(['message' => "Unauthenticated", 'response' => 401], 401));
         }
-        if (! $request->expectsJson()) {
+        if (!$request->expectsJson()) {
             return route('login');
         }
     }
